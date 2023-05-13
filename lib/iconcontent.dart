@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+
 class iconcontent extends StatelessWidget {
   IconData icon;
   String lable;
-  iconcontent({
-    required this.icon,required this.lable
-  });
+  iconcontent({required this.icon, required this.lable});
 
   @override
   Widget build(BuildContext context) {

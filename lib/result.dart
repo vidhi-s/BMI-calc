@@ -1,59 +1,73 @@
 import 'package:flutter/material.dart';
 import 'container.dart';
 import 'bottombutton.dart';
+
 class result extends StatelessWidget {
-  const result({Key? key}) : super(key: key);
+  result(
+      {required this.interpretation,
+      required this.bmiResult,
+      required this.resultText});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xF2131D50),
+        backgroundColor: Color(0xFF061042),
         title: Text('BMI Calculator'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-   
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
               padding: EdgeInsets.all(15.0),
-alignment: Alignment.bottomLeft,
+              alignment: Alignment.bottomLeft,
               child: Text(
-                'YOUR BMI',style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold
-              ),
+                'YOUR BMI',
+                style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
           ),
           Expanded(
             flex: 5,
-            child: container(colour: Color(0xFF0B1338)
-              ,cardchild: Column(
+            child: container(
+              colour: Color(0xFF0B1338),
+              cardchild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
-                  Text('normal',style: TextStyle(fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.yellow),),
-
-
-                  Text('87',style: TextStyle(fontSize: 100.0,
-                  fontWeight: FontWeight.bold),),
-                  Text('Geez,you are fat',style: TextStyle(
-                    fontSize: 25.0,
-                    
-                  ),)
+                  Text(
+                    resultText,
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.yellow),
+                  ),
+                  Text(
+                    bmiResult,
+                    style:
+                        TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    interpretation,
+                    style: TextStyle(
+                      fontSize: 25.0,
+                    ),
+                  )
                 ],
               ),
             ),
           ),
-          bottombutton(text:' RE-CALCULATE YOUR BMI', onpressed: (){
-            Navigator.pop(context);
-          })
+          bottombutton(
+              text: ' RE-CALCULATE YOUR BMI',
+              onpressed: () {
+                Navigator.pop(context);
+              })
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'iconcontent.dart';
 import 'roundedicon.dart';
 import 'bottombutton.dart';
+import 'calculation.dart';
 
 enum Gender { male, female }
 
@@ -18,13 +19,13 @@ class _HomepageState extends State<Homepage> {
   Color activecolour = Color(0xFF212C67);
   Color deactivecolour = Color(0xFF0B1338);
   int height = 150;
-  int width = 65;
+  int weight = 65;
   int age = 22;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xF2131D50),
+        backgroundColor: Color(0xFF061042),
         title: Text('BMI Calculator'),
       ),
       body: Column(children: [
@@ -99,12 +100,13 @@ class _HomepageState extends State<Homepage> {
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                            thumbShape: RoundSliderThumbShape(),
-                            thumbColor: Color(0xFF06ACC9),
-                            activeTrackColor: Colors.white,
-                            inactiveTrackColor: Colors.white70,
-                            overlayShape: RoundSliderOverlayShape(),
-                            overlayColor: Color(0xB206ACC9),),
+                          thumbShape: RoundSliderThumbShape(),
+                          thumbColor: Color(0xFF06ACC9),
+                          activeTrackColor: Colors.white,
+                          inactiveTrackColor: Colors.white70,
+                          overlayShape: RoundSliderOverlayShape(),
+                          overlayColor: Color(0xB206ACC9),
+                        ),
                         child: Slider(
                             value: height.toDouble(),
                             min: 100,
@@ -135,7 +137,7 @@ class _HomepageState extends State<Homepage> {
                         style: TextStyle(fontSize: 18.0, color: Colors.white70),
                       ),
                       Text(
-                        width.toString(),
+                        weight.toString(),
                         style: TextStyle(
                             fontSize: 35.0, fontWeight: FontWeight.w600),
                       ),
@@ -146,7 +148,7 @@ class _HomepageState extends State<Homepage> {
                             icon: FontAwesomeIcons.minus,
                             onpressed: () {
                               setState(() {
-                                width--;
+                                weight--;
                               });
                             },
                           ),
@@ -157,7 +159,7 @@ class _HomepageState extends State<Homepage> {
                               icon: FontAwesomeIcons.plus,
                               onpressed: () {
                                 setState(() {
-                                  width++;
+                                  weight++;
                                 });
                               })
                         ],
@@ -208,12 +210,24 @@ class _HomepageState extends State<Homepage> {
             )
           ]),
         ),
-        bottombutton(text: 'CENTER',onpressed: (){
-          Navigator.pushNamed(context, '/final');
-        },)
+        bottombutton(
+          text: 'CENTER',
+          onpressed: () {
+            calculation calculate = calculation(height: height, weight: weight);
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => result(
+                  bmiResult: calculate.getbmi(),
+                  resultText: calculate.getResult(),
+                  interpretation: calculate.getInterpretation(),
+                ),
+              ),
+            );
+          },
+        )
       ]),
     );
   }
 }
-
-

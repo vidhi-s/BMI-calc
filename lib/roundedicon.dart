@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+
 class roundedicon extends StatelessWidget {
-   roundedicon({
-  required  this.icon,required this.onpressed
-  });
+  roundedicon({required this.icon, required this.onpressed});
   IconData icon;
   VoidCallback onpressed;
 
@@ -13,10 +12,8 @@ class roundedicon extends StatelessWidget {
       onPressed: onpressed,
       shape: CircleBorder(),
       fillColor: Colors.white70,
-      constraints: BoxConstraints.tightFor(
-          width: 50.0, height: 50.0),
+      constraints: BoxConstraints.tightFor(width: 50.0, height: 50.0),
       child: Icon(icon),
-
     );
   }
 }
