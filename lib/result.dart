@@ -16,7 +16,7 @@ class result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF061042),
+        backgroundColor: Color(0xFF000A41),
         title: Text('BMI Calculator'),
       ),
       body: Column(
@@ -42,7 +42,7 @@ class result extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    resultText,
+                    resultText.toUpperCase(),
                     style: TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
@@ -54,8 +54,9 @@ class result extends StatelessWidget {
                         TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    interpretation,
+                    interpretation,textAlign: TextAlign.center,
                     style: TextStyle(
+
                       fontSize: 25.0,
                     ),
                   )

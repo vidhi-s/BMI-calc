@@ -25,7 +25,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF061042),
+        backgroundColor: Color(0xFF000A41),
         title: Text('BMI Calculator'),
       ),
       body: Column(children: [
@@ -134,7 +134,7 @@ class _HomepageState extends State<Homepage> {
                     children: [
                       Text(
                         'WEIGHT',
-                        style: TextStyle(fontSize: 18.0, color: Colors.white70),
+                        style: TextStyle(fontSize: 15.0, color: Colors.white70),
                       ),
                       Text(
                         weight.toString(),
@@ -176,7 +176,7 @@ class _HomepageState extends State<Homepage> {
                         Text(
                           'AGE',
                           style:
-                              TextStyle(fontSize: 18.0, color: Colors.white70),
+                              TextStyle(fontSize: 15.0, color: Colors.white70),
                         ),
                         Text(
                           age.toString(),

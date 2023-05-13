@@ -22,7 +22,7 @@ class calculation {
 
   String getInterpretation() {
     if (_bmi >= 25) {
-      return 'trying to normalize obesity huh??';
+      return 'Trying to normalize obesity huh??';
     } else if (_bmi >= 18.5) {
       return 'Good Job,normie';
     } else {
