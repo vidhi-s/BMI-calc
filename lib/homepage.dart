@@ -211,7 +211,7 @@ class _HomepageState extends State<Homepage> {
           ]),
         ),
         bottombutton(
-          text: 'CENTER',
+          text: 'CALCULATE',
           onpressed: () {
             calculation calculate = calculation(height: height, weight: weight);
 
